@@ -1,0 +1,28 @@
+<template name="Header">
+	<header class="d-flex align-items-center" > 
+		<div class="d-flex justify-content-around w-100 align-items-center">
+			
+			<img src="https://image.flaticon.com/icons/png/512/2514/2514669.png" width="50px" alt="Not File"><h1></h1>
+		
+			<div class="d-flex align-items-center" style="height: 100%;">
+				{{#if iconsrc }}
+				<img style="float: right;border-radius: 50%; padding-right: 10px;" src={{iconsrc}} alt="No existe IMG">
+				{{else}}
+				<i class="fa fa-user-circle" style="padding-right: 10px; font-size: xx-large;" ></i>
+				{{/if}}   
+				{{> loginButtons}}
+				
+			
+			</div>
+		</div>
+			
+				
+				
+				
+			
+		
+			
+		
+		
+	</header>
+</template>

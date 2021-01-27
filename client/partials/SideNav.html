@@ -1,0 +1,46 @@
+<template name="SideNav">
+	<nav class="side-nav">
+		<ul>
+			<div class="w-100 align-items-center justify-content-center div-user d-none d-md-flex">
+				<div class="row w-100 d-flex align-items-center justify-content-center">
+					<div class="col-12 d-flex align-items-center justify-content-center">
+						{{#if iconsrc }}
+						<img style="float: right;border-radius: 50%; padding-right: 10px;" src={{iconsrc}} alt="No existe IMG">
+						{{else}}
+						<i class="fa fa-user-circle" style="padding-right: 10px; font-size: xx-large;" ></i>
+						{{/if}} 
+					</div>
+					<div class="col-12 d-flex align-items-center justify-content-center">
+						{{#if currentUser.username }}
+						{{currentUser.username}}
+						{{else}}
+
+						{{#each currentUser.emails}}
+						{{address}}
+						{{/each}}
+
+						{{/if}} 
+
+
+						
+					</div>
+					
+					
+				</div>
+				
+			</div>
+
+			{{#if currentUser.isAdmin }}
+			<li>
+				<a href="/lista-vendedores"><i class="fa fa-list"></i> Lista de Usuarios</a>
+			</li>
+			{{/if}}
+			<li>
+				<a href="/menu"><i class="fa fa-map-o"></i> Vendedores</a>
+			</li>
+			<li>
+				<a href="/shopping-list"><i class="fa fa-shopping-cart"></i> Top Vendedores</a>
+			</li>
+		</ul>
+	</nav>
+</template>

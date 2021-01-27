@@ -1,0 +1,47 @@
+<template name="RecipeSingle">
+	<a href="/"><i class="fa fa-arrow-circle-left" style="padding-right: 10px; font-size: 3em;" ></i></a>
+	
+	<br>
+	<br>
+	<article class="recipe {{#if users.inMenu}}in-menu{{/if}}">
+		<div class="row d-flex align-items-center" style="padding: 10px;">
+			{{#if users.services.facebook.picture.data.url}}
+			<img src="{{users.services.facebook.picture.data.url}}" alt="" style="margin-right: 10px; border-radius: 50%;">
+			{{else}}
+			<i class="fa fa-user-circle" style="padding-right: 10px; font-size: 3em;" ></i>
+			{{/if}}
+			<div>
+				{{#if users.username}}
+				<h4>{{users.username}}</h4>
+				{{else}}
+				<h4>{{#each users.emails}} {{address}} {{/each}}</h4>
+				{{/if}}
+			</div>
+			
+		</div>
+		
+		<!-- https://image.flaticon.com/icons/svg/1067/1067447.svg   like -->
+
+		<!-- https://www.flaticon.es/premium-icon/icons/svg/707/707699.svg  dislike -->
+
+		<!-- {{#if editMode }}
+			{{> quickForm collection="Recipes" id=updateRecipeId type="update" doc=this autosave=true}}
+		{{else}} -->
+		
+		
+			
+			{{#if currentUser.isAdmin }}
+			{{#if users.inMenu}}
+				<button class="btn-deny toggle-menu">Eliminar</button>
+			{{else}}
+				<button class="btn-primary toggle-menu">Agregar</button>
+			{{/if}}
+
+
+		<!-- {{/if}} -->
+		<!-- <i class="fa fa-pencil"></i> -->
+		<i class="fa fa-trash"></i>
+		{{/if}}
+	</article>
+
+</template>

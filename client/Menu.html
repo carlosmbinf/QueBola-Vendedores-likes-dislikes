@@ -1,0 +1,57 @@
+<template name="Menu">
+	<h1 class="page-title">Vendedores</h1>
+	
+	{{#each users}}
+		{{> MenuItem}}
+	{{else}}
+	<ul class="shopping-list" style="background: #373142;">
+		<li>Please add <a href="/lista-vendedores">recipes</a> to your menu</li>
+	</ul>
+	{{/each}}
+	
+	
+
+</template>
+
+
+
+
+
+<template name="MenuItem">
+	
+	<article class="recipe ">
+		<div class="row d-flex align-items-center" style="padding: 10px;">
+			{{#if services.facebook.picture.data.url}}
+			<img src="{{services.facebook.picture.data.url}}" alt="" style="margin-right: 10px; border-radius: 50%;">
+			{{else}}
+			<i class="fa fa-user-circle" style="padding-right: 10px; font-size: 50px;" ></i>
+			{{/if}}
+			<a class="usern" href="/recipe/{{_id}}">
+				{{#if username}}
+				<h4>{{username}}</h4>
+				{{else}}
+				<h4>{{#each emails}} {{address}} {{/each}}</h4>
+				{{/if}}
+			</a>
+		</div>
+		
+		<div class="row" style="position: absolute;
+				right: 40px;
+				bottom: 20px;
+				font-size: 12px;">
+				<button style="color: white; background: #524763;	border: solid 3px #568e8e;border-bottom-right-radius: 0;
+				border-top-right-radius: 0;" class="like btn-primary toggle-menu">
+				{{like(_id)}}
+				<img src="https://image.flaticon.com/icons/svg/1067/1067447.svg" style="cursor: pointer;width: 20px;height: 20px;" alt="error cargando la img" ></button>
+				
+				<button style="color: white; background: #524763;	border: solid 3px #568e8e;border-bottom-left-radius: 0;
+				border-top-left-radius: 0;" class="dislike btn-primary toggle-menu">			
+				<img src="https://www.flaticon.es/premium-icon/icons/svg/707/707699.svg" style="cursor: pointer;width: 20px;height: 20px;" alt="error cargando la img" >
+				{{dislike(_id)}}
+				</button>
+				
+			</div>
+	
+	</article>
+
+</template>

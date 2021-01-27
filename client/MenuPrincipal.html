@@ -1,0 +1,10 @@
+<template name="MenuPrincipal">
+	<h2 class="page-title">Artistas Registrados</h2>
+	<ul class="shopping-list" style="background: #82d8d8;">
+	{{#each recipes}}
+		{{> MenuItem}}
+	{{else}}
+		<li>Please add <a href="/lista-vendedores">recipes</a> to your menu</li>
+	{{/each}}
+	</ul>
+</template>

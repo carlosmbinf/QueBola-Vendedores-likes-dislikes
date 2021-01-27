@@ -1,0 +1,44 @@
+<template name="Vendedor">
+	<article class="recipe {{#if inMenu}}in-menu{{/if}}">
+		<div class="row d-flex align-items-center" style="padding: 10px;">
+			{{#if services.facebook.picture.data.url}}
+			<img src="{{services.facebook.picture.data.url}}" alt="" style="margin-right: 10px; border-radius: 50%;">
+			{{else}}
+			<i class="fa fa-user-circle" style="padding-right: 10px; font-size: 50px;" ></i>
+			{{/if}}
+			<a class="usern" href="/recipe/{{_id}}">
+				{{#if username}}
+				<h4>{{username}}</h4>
+				{{else}}
+				<h4>{{#each emails}} {{address}} {{/each}}</h4>
+				{{/if}}
+			</a>
+		</div>
+		
+		
+			
+			{{#if currentUser.isAdmin }}
+			{{#if inMenu}}
+				<button class="btn-deny toggle-menu vended">Eliminar</button>
+			{{else}}
+				<button class="btn-primary toggle-menu vended">Agregar</button>
+			{{/if}}
+		
+			
+				<div class=" custom-control custom-switch" style="right: 40px;cursor: pointer; bottom: 0; position: absolute; padding: 20px;transition: all 0.3s ease;">
+					{{#if isAdmin}}
+					<input type="checkbox" checked class="custom-control-input" id="{{_id}}" name="example">
+					{{else}}
+					<input type="checkbox"  class="custom-control-input" id="{{_id}}" name="example">
+					{{/if}}
+					<label class="custom-control-label" for="{{_id}}"></label>
+				  </div>
+			
+				  
+
+		<!-- <i class="fa fa-pencil"></i> -->
+		
+		<i class="fa fa-trash"></i> 
+		{{/if}}
+	</article>
+</template>

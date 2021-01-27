@@ -1,0 +1,14 @@
+<template name="HomeLayout">
+	{{> Header}}
+	<main>
+		<div class="billboard">
+			<div class="">
+				{{> Template.dynamic template=main}}
+			</div>
+			<div class="">
+				{{> Template.dynamic template=second}}
+			</div>
+		</div>
+		
+	</main>
+</template>
